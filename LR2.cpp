@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+//добавление комментариев
 class Array {
 private:
     std::vector<double> data;
