@@ -1,26 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
-using namespace std;
 
 int main() {
     int n;
     //Введите размерность исходного массива
-    cin >> n;
+    std::cin >> n;
 
-    vector<double> arr(n);
+    std::vector<double> arr(n);
 
     //Введите элементы массива
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        std::cin >> arr[i];
     }
 
     // Вывод исходного массива
-    cout << arr.size() << endl;
+    std::cout << arr.size() << std::endl;
     for (int i = 0; i < arr.size(); i++) {
-        cout << fixed << setprecision(3) << arr[i] << " ";
+        std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     // Добавление суммы и среднего арифметического
     double sum = 0;
@@ -32,9 +31,9 @@ int main() {
 
     // Вывод массива после добавления
     for (int i = 0; i < arr.size(); i++) {
-        cout << fixed << setprecision(3) << arr[i] << " ";
+        std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     // нахождение максимума
     double max = 0;
@@ -44,49 +43,49 @@ int main() {
         }
     }
 
-    // Подсчет отрицательных чисел и поиск максимального значени
+    // Подсчет отрицательных чисел и поиск максимального значения
     int negCount=0;
     for (int i = 0; i < arr.size(); ++i) {
 	  if (arr[i] < 0) {
     	negCount++;
 	     if (negCount % 2 == 0) {
-	        arr[i] = max / 2;}} // Заменяем каждое второе отрицательное чис половиной максимум
+	        arr[i] = max / 2;}} // Заменяем каждое второе отрицательное число половиной максимума
 	}
 
 
     // Вывод массива после выполнения операции
     for (int i = 0; i < arr.size(); i++) {
-        cout << fixed << setprecision(3) << arr[i] << " ";
+        std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     int choice;
     //Выберите действие (1 - добавить элемент, 2 - удалить элемент, 0 - выход)
-    cin >> choice;
+    std::cin >> choice;
 
     while (choice != 0) {
         if (choice == 1) {
             double newElement;
             //Введите элемент для добавления
-            cin >> newElement;
+            std::cin >> newElement;
             arr.push_back(newElement);
-            cout << "+: " << arr.size() << endl;
+            std::cout << "+: " << arr.size() << std::endl;
         }
         else if (choice == 2) {
             if (!arr.empty()) {
                 arr.pop_back();
-                cout << "-: " << arr.size() << endl;
+                std::cout << "-: " << arr.size() << std::endl;
             }
             else {
-                //cout << "Массив пустой, невозможно удалить элемент." << endl;
+                //std::cout << "Массив пустой, невозможно удалить элемент." << std::endl;
             }
         }
 
         // Вывод массива после выполнения операции
         for (int i = 0; i < arr.size(); i++) {
-            cout << fixed << setprecision(3) << arr[i] << " ";
+            std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
 
         // Добавление суммы и среднего арифметического
         sum = 0;
@@ -98,35 +97,37 @@ int main() {
 
         // Вывод массива после выполнения операции
         for (int i = 0; i < arr.size(); i++) {
-            cout << fixed << setprecision(3) << arr[i] << " ";
+            std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
 
        // нахождение максимума
-    double max = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        if (max < arr[i]) {
-            max = arr[i];
+        double max = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
         }
-    }
 
-    // Подсчет отрицательных чисел и поиск максимального значени
-    int negCount=0;
-    for (int i = 0; i < arr.size(); ++i) {
-	  if (arr[i] < 0) {
-    	negCount++;
-	     if (negCount % 2 == 0) {
-	        arr[i] = max / 2;}} // Заменяем каждое второе отрицательное чис половиной максимум
-	}
+        // Подсчет отрицательных чисел и поиск максимального значения
+        int negCount=0;
+        for (int i = 0; i < arr.size(); ++i) {
+            if (arr[i] < 0) {
+                negCount++;
+                if (negCount % 2 == 0) {
+                    arr[i] = max / 2;
+                } // Заменяем каждое второе отрицательное число половиной максимума
+            }
+        }
 
         // Вывод массива после выполнения операции
         for (int i = 0; i < arr.size(); i++) {
-            cout << fixed << setprecision(3) << arr[i] << " ";
+            std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
 
-        //cout << "Выберите действие (1 - добавить элемент, 2 - удалить элемент, 0 - выход): ";
-        cin >> choice;
+        //std::cout << "Выберите действие (1 - добавить элемент, 2 - удалить элемент, 0 - выход): ";
+        std::cin >> choice;
     }
 
     return 0;
